@@ -1,0 +1,11 @@
+#!/bin/sh
+
+msg="$(python2 --version 2>&1)"
+
+if [[ $msg == *"command not found" ]] 
+then
+	python3 githooks/update-modified-header.py
+else
+	python2 githooks/update-modified-header.py
+fi
+
