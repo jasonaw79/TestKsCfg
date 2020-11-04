@@ -1,5 +1,5 @@
-# $Revision: 1.03 $
-# $Date: 05-11-2020 04:08:54 $
+# $Revision: 1.04 $
+# $Date: 05-11-2020 04:14:05 $
 # $Author: Jason <lam.aw@seagate.com> $
 
 
@@ -91,7 +91,7 @@ def updateRevision(line):
             ver[1] += 1
 
         if digit == 1:
-           strVer = "%d.%d" % (ver[0], ver[0])
+           strVer = "%d.%d" % (ver[0], ver[1])
         else:            
            strVer = "%d.%02d" % (ver[0], ver[1])
 
