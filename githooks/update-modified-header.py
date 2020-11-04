@@ -1,3 +1,7 @@
+# $Revision: 1.01 $
+# $Date: 05-11-2020 01:43:57 $
+# $Author: Justin <justin@yahoo.com> $
+
 
 from datetime import datetime
 
@@ -75,15 +79,22 @@ def gitauthor(line):
 def updateRevision(line):
     try:
         strVer = line.split("$Revision: ")[1].split()[0]
-        version = [int(x) for x in strVer.split('.')]
+        version = [x for x in strVer.split('.')]
 
-        if version[1] == 99:
-            version[0] += 1
-            version[1] = 0
+        digit = len(version[1])
+        ver = [int(i) for i in version]
+
+        if ver[1] == 99:
+            ver[0] += 1
+            ver[1] = 0
         else:
-            version[1] += 1
+            ver[1] += 1
 
-        strVer = "%d.%02d" % (version[0], version[1])
+        if digit == 1:
+           strVer = "%d.%d" % (ver[0], ver[0])
+        else:            
+           strVer = "%d.%02d" % (ver[0], ver[1])
+
         return str.replace(line, line.split("$Revision: ")[1].split()[0], strVer)
 
     except IndexError:
@@ -107,19 +118,33 @@ def main(args):
     for fn in kwfn:
         myfile_list = open(fn).readlines()
         newList = []
+
+        idx = 0
+        total = 0
         for line in myfile_list:
             if '$Revision:' in line:
-                newList.append(updateRevision(line))
+                myfile_list[idx] = updateRevision(line)
+                total += 1
             elif "$Date:" in line:
-                newList.append(gitdate(line))
+                myfile_list[idx] = gitdate(line)
+                total += 1
             elif "$Author:" in line:
-                newList.append(gitauthor(line))
-            else:
-                newList.append(line)
+                myfile_list[idx] = gitauthor(line)
+                total += 1
+
+            if total == 3:
+                break
+            
+            idx += 1
+           # else:
+           #     newList.append(line)
+           # idx += 1
 
         with open(fn, 'w') as r:
-            for line in newList:
-                r.writelines(line)
+           r.writelines(myfile_list)
+            
+           # for line in idxList:
+           #     r.writelines(line)
 
     args = ['git', 'add'] + kwfn
     subprocess.call(args)
