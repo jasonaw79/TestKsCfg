@@ -33,6 +33,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      # Show python version
-      - name: Show python version
-        run: python --version
+      # Runs python script
+      - name: Runs python script
+        run: python tranfer_kickstart.py
