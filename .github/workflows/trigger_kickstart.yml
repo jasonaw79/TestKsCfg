@@ -21,9 +21,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout repository 
       - uses: actions/checkout@v2
-        
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
@@ -33,17 +32,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-        
+          
       # Get changed files
       - name: Get changed files
-        id: getfile
         run: |
-          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | xargs)"
-
-      - name: echo output
-        run: |
-          echo ${{ steps.getfile.outputs.files }}               
-                   
+           git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+            
       # Runs python script
       - name: Runs python script
         run: python .github/workflows/transfer-kickstart.py
