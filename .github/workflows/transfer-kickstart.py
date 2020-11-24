@@ -25,7 +25,7 @@ def checkfor(args):
 def modifiedfiles():
     fnl = []
     try:
-        args = ['git', 'diff', 'HEAD', '--name-only', '-r', '--diff-filter=M']
+        args = ['git', 'diff-tree', '--no-commit-id', '--name-only', '-r', '${{ github.sha }}']
         with open(os.devnull, 'w') as bb:
             fnl = subprocess.check_output(args, stderr=bb).splitlines()
             # Deal with unmodified repositories
