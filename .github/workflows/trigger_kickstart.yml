@@ -35,4 +35,4 @@ jobs:
           
       # Runs python script
       - name: Runs python script
-        run: python .github/workflows/transfer_kickstart.py
+        run: python .github/workflows/transfer-kickstart.py
