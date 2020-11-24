@@ -38,9 +38,7 @@ jobs:
       
       - name: Show modified file
         run: |
-           for changed_file in ${{ steps.files.outputs.modified }}; do
-             echo "Do something with this ${changed_file}."
-           done
+            echo "${{ steps.files.outputs.modified }}"
             
       # Runs python script
       - name: Runs python script
