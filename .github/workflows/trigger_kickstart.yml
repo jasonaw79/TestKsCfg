@@ -33,6 +33,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
+      # Get changed files
+      - name: Get changed files
+        run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+          
       # Runs python script
       - name: Runs python script
         run: python .github/workflows/transfer-kickstart.py
