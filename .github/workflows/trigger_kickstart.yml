@@ -28,9 +28,9 @@ jobs:
         id: files
         uses: jitterbit/get-changed-files@v1
       
-      - name: Show modified files
-        run: |
-            echo "${{ steps.files.outputs.modified }}"
+      - name: Check if 'ks.cfg' file is modified
+        if: contains(steps.files.outputs.modified, 'ks.cfg')
+        run: echo "ks.cfg found!"
             
       # Runs python script
       - name: Runs python script
