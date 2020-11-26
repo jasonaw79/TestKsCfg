@@ -21,7 +21,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2      
 
       # Runs the get changed files actions
       - name: Runs the get changed files actions               
@@ -29,8 +29,13 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       
       - name: Check if 'ks.cfg' file is modified
-        if: contains(steps.files.outputs.modified, 'ks.cfg')
-        run: echo "ks.cfg found!"
+        env: 
+          fileExist: ${{ contains(steps.files.outputs.modified, 'ks.cfg') }}
+        run: |
+          if ${fileExist} == true; then
+            echo "ks.cfg found!"
+          else
+            echo "ks.cfg not found!"
             
       # Runs python script
       - name: Runs python script
