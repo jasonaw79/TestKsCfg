@@ -36,6 +36,7 @@ jobs:
             echo "ks.cfg found!"
           else
             echo "ks.cfg not found!"
+          fi
             
       # Runs python script
       - name: Runs python script
