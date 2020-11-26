@@ -1,1 +1,1 @@
-Test on PC
+Testing only
