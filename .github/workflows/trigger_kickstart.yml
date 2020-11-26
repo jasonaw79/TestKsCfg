@@ -45,7 +45,6 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.USER_PASSWORD }}
           port: ${{ secrets.PORT }}
-          key: ${{ secrets.KEY }}
           source: "ks.cfg"
           target: "/home/merlin/Jason/"
             
