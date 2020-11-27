@@ -48,6 +48,7 @@ jobs:
           timeout: 5m
           source: "ks.cfg"
           target: "/home/merlin/Jason/"
+          debug: true
             
       # Runs python script
       - name: Runs python script
