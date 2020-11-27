@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.USER_PASSWORD }}
           port: ${{ secrets.PORT }}
-          timeout: 5m
+          timeout: 2m
           source: "ks.cfg"
           target: "/home/merlin/Jason/"
             
