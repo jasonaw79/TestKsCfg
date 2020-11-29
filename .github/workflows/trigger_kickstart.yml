@@ -39,14 +39,7 @@ jobs:
           fi
           
       - name: Transfer kickstart file to primary server
-        uses: garygrossgarten/github-action-scp@release
-        with:          
-          local: ks.cfg
-          remote: /home/merlin/Jason/ks.cfg
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER_NAME }}
-          password: ${{ secrets.USER_PASSWORD }}
-
+        run: echo $(pwd)
             
       # Runs python script
       - name: Runs python script
