@@ -33,13 +33,9 @@ jobs:
           fileExist: ${{ contains(steps.files.outputs.modified, 'ks.cfg') }}
         run: |
           if ${fileExist} == true; then
-            echo "ks.cfg modified!"
+             scp ks.cfg ${{secrets.USER_NAME}}@${{ secrets.HOST }}:/home/merlin/Jason/TestGitAction/
           else
             echo "ks.cfg not modified!"
-          fi
-          echo $(pwd)
-          
-      - name: Transfer kickstart file to primary server
-        run: |
-            scp ks.cfg ${{secrets.USER_NAME}}@${{ secrets.HOST }}:/home/merlin/Jason/TestGitAction/
+          fi            
+      
             
