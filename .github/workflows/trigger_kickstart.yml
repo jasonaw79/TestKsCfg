@@ -37,13 +37,9 @@ jobs:
           else
             echo "ks.cfg not modified!"
           fi
+          echo $(pwd)
           
       - name: Transfer kickstart file to primary server
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: ks.cfg
-          remote: /home/merlin/Jason/TestGitAction/ks.cfg
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.PASSWORD }}
+        run: |
+            scp ks.cfg ${{secrets.USER_NAME}}@${{ secrets.HOST }}:/home/merlin/Jason/TestGitAction/
             
