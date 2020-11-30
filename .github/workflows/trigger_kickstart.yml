@@ -41,6 +41,3 @@ jobs:
       - name: Transfer kickstart file to primary server
         run: echo $(pwd)
             
-      # Runs python script
-      - name: Runs python script
-        run: python .github/workflows/transfer-kickstart.py
