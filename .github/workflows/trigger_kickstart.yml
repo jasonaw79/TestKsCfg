@@ -35,5 +35,5 @@ jobs:
           if ${fileExist} == true; then
              scp ks.cfg ${{secrets.USER_NAME}}@${{ secrets.HOST }}:${{ secrets.TARGETPATH }}
           else
-            echo "ks.cfg not modified"
-          fi         
+            echo "ks.cfg not modified!"
+          fi  
