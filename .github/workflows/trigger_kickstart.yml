@@ -25,8 +25,7 @@ jobs:
 
       # Runs the get changed files actions
       - name: Runs the get changed files actions               
-        id: files
-        uses: jitterbit/get-changed-files@v1
+          git diff-tree --no-commit-id --name-only -r ${{ github.sha }}   
       
       - name: Copy kickstart file 'ks.cfg' to kickstart server if it was modified
         env: 
