@@ -24,14 +24,16 @@ jobs:
       - uses: actions/checkout@v2      
 
       # Runs the get changed files actions
-      - name: Runs the get changed files actions 
-        run: |              
-          git diff-tree --no-commit-id --name-only -r ${{ github.sha }}   
+      - name: Runs the get changed files actions               
+        id: files
+        uses: jitterbit/get-changed-files@v1
       
       - name: Copy kickstart file 'ks.cfg' to kickstart server if it was modified
         env: 
-          fileExist: True
+          fileExist: ${{ contains(steps.files.outputs.modified, 'ks.cfg') }}
         run: |
           if ${fileExist} == true; then
              scp ks.cfg ${{secrets.USER_NAME}}@${{ secrets.HOST }}:${{ secrets.TARGETPATH }}
-
+          else
+            echo "ks.cfg not modified!"
+          fi  
