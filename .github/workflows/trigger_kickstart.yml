@@ -31,7 +31,7 @@ jobs:
           fileExist: ${{ contains(steps.files.outputs.modified, 'ks.cfg') }}
         run: |
           if ${fileExist} == true; then
-             scp ks.cfg ${{secrets.USER_NAME}}@${{ secrets.HOST }}:${{ secrets.TARGETPATH }}
+             cp ks.cfg /home/jasonaw79/Jason/TestLocal/ks.cfg
           else
             echo "ks.cfg not modified!"
           fi   
