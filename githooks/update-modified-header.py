@@ -2,9 +2,9 @@
 ##############################################################################
 #
 # $RCSfile: update-modified-header.py $
-# $Revision: 1.09 $
-# $Date: 06-12-2020 09:38:13 $
-# $Author: Sumit Gupta $
+# $Revision: 1.10 $
+# $Date: 13-12-2020 23:43:23 $
+# $Author: Jason <jason@seagate.com> $
 # $Source: hooks/update-modified-header.py $
 #
 #  Pre-commit hook for updating the file header
@@ -161,5 +161,4 @@ def main(args):
 
 if __name__ == '__main__':
     main(sys.argv)
-`:x
 
