@@ -114,6 +114,7 @@ def updateRevision(line):
     raise ValueError('Revision not found in file header')
 
 def main(args):
+  print("Runnng update-modified-header.py")
   checkfor(['git', '--version'])
   if not os.access('.git', os.F_OK):
     print('No .git directory found!')
