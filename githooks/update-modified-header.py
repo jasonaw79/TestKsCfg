@@ -48,6 +48,8 @@ def modifiedfiles():
         fnl = subprocess.check_output(args, stderr=bb).splitlines()
   # Only return regular files.
   fnl = [i for i in fnl if os.path.isfile(i)]
+  print("Modified files list:")
+  print(fnl)
   return fnl
 
 def keywordfiles(fns):
@@ -65,6 +67,8 @@ def keywordfiles(fns):
         mm.close()
       except ValueError:
         pass
+  print("Files with keyword:")
+  print(rv)
   return rv
 
 def gitdate(line):
@@ -134,12 +138,15 @@ def main(args):
       if line and line.startswith("#"):
         if '$Revision:' in line:
           myfile_list[idx] = updateRevision(line)
+          print("Updated:", myfile_list[idx])
           total += 1
         elif "$Date:" in line:
           myfile_list[idx] = gitdate(line)
+          print("Updated:", myfile_list[idx])
           total += 1
         elif "$Author:" in line:
           myfile_list[idx] = gitauthor(line)
+          print("Updated:", myfile_list[idx])
           total += 1
         
         if total == 3:
@@ -158,7 +165,8 @@ def main(args):
 
   args = ['git', 'add'] + kwfn
   subprocess.call(args)
-
-if __name__ == '__main__':
+  print("Re-add modified file(s)")
+  
+  if __name__ == '__main__':
     main(sys.argv)
 
