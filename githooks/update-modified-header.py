@@ -2,8 +2,8 @@
 ##############################################################################
 #
 # $RCSfile: update-modified-header.py $
-# $Revision: 1.10 $
-# $Date: 13-12-2020 23:43:23 $
+# $Revision: 1.12 $
+# $Date: 15-12-2020 10:58:59 $
 # $Author: Jason <jason@seagate.com> $
 # $Source: hooks/update-modified-header.py $
 #
@@ -114,7 +114,7 @@ def updateRevision(line):
     raise ValueError('Revision not found in file header')
 
 def main(args):
-  print("Runnng update-modified-header.py")
+  print("Running update-modified-header.py")
   checkfor(['git', '--version'])
   if not os.access('.git', os.F_OK):
     print('No .git directory found!')
@@ -168,6 +168,6 @@ def main(args):
   subprocess.call(args)
   print("Re-add modified file(s)")
   
-  if __name__ == '__main__':
+if __name__ == '__main__':
     main(sys.argv)
 
