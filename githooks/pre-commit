@@ -2,6 +2,8 @@
 
 msg="$(python2 --version 2>&1)"
 
+echo "Running pre-commit hook"
+
 if [[ $msg == *"command not found" ]] 
 then
 	python3 githooks/update-modified-header.py
@@ -9,3 +11,4 @@ else
 	python2 githooks/update-modified-header.py
 fi
 
+echo "End of pre-commit hook"
