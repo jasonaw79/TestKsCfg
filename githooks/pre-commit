@@ -1,16 +1,22 @@
 #!/bin/sh
 
-msg="$(python2 --version 2>&1)"
+msg="$(python2.7 --version 2>&1)"
 
 echo "Running pre-commit hook"
 
+cat /etc/centos-release
+
+git --version
+
 if [[ $msg == *"command not found" ]] 
 then
-	echo "Python 3"
-	python3 githooks/update-modified-header.py
+	python3.8 -V
+	echo "Python 3.8"
+	python3.8 githooks/update-modified-header.py
 else
-	echo "Python 2"
-	python2 githooks/update-modified-header.py
+	python2.7 -V
+	echo "Python 2.7"
+	python2.7 githooks/update-modified-header.py
 fi
 
 echo "End of pre-commit hook"
