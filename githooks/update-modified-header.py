@@ -2,8 +2,8 @@
 ##############################################################################
 #
 # $RCSfile: update-modified-header.py $
-# $Revision: 1.13 $
-# $Date: 15-01-2021 15:14:49 $
+# $Revision: 1.14 $
+# $Date: 15-01-2021 15:51:27 $
 # $Author: Jason <jason@seagate.com> $
 # $Source: hooks/update-modified-header.py $
 #
@@ -164,7 +164,6 @@ def main(args):
           r.writelines(myfile_list)
           
 
-  time.sleep(1)
   args = ['git', 'add'] + kwfn
   subprocess.call(args)
   print("Re-add modified file(s)")
