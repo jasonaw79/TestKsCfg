@@ -2,10 +2,6 @@
 
 msg="$(python2.7 --version 2>&1)"
 
-MSG="$1"
-
-echo "$MSG"
-
 echo "Running pre-commit hook"
 
 cat /etc/centos-release
