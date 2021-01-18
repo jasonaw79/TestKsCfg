@@ -1,4 +1,4 @@
-#!/usr/bin/env fofpython
+#!/usr/bin/env python2
 ##############################################################################
 #
 # $RCSfile: update-modified-header.py $
