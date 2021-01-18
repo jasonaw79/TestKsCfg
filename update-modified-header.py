@@ -2,9 +2,9 @@
 ##############################################################################
 #
 # $RCSfile: update-modified-header.py $
-# $Revision: 1.15 $
-# $Date: 16-01-2021 17:11:47 $
-# $Author: Jason <jason@seagate.com> $
+# $Revision: 1.16 $
+# $Date: 18-01-2021 16:10:14 $
+# $Author: Jason Aw $
 # $Source: hooks/update-modified-header.py $
 #
 #  Pre-commit hook for updating the file header
