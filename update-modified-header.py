@@ -49,20 +49,18 @@ def updateRevision(line):
 
 def main(args):
   filelist = modifiedfiles()
-  for file in filelist:
-    lines = open(files).readlines()
+  for fn in filelist:
+    lines = open(fn).readlines()
     
     i = 0
     for line in lines:
         if '$Revision:' in line:
-          lines[i] = updateRevision(line)
-                  
+          lines[i] = updateRevision(line)            
         i += 1
-      
-      
-   with open(file, 'w') as r:
-     r.writelines(lines)
-          
+   
+    with open(fn, 'w') as r:
+      r.writelines(lines)
+
 
   args = ['git', 'add', '.']
   subprocess.call(args)
